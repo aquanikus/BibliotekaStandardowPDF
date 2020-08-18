@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\rotativa.aspnetcore\1.1.1\.nupkg.metadata" />
+    <None Include="wwwroot\lib\rotativa.aspnetcore\1.1.1\.signature.p7s" />
+    <None Include="wwwroot\lib\rotativa.aspnetcore\1.1.1\lib\netstandard2.0\Rotativa.AspNetCore.dll" />
+    <None Include="wwwroot\lib\rotativa.aspnetcore\1.1.1\rotativa.aspnetcore.1.1.1.nupkg" />
+    <None Include="wwwroot\lib\rotativa.aspnetcore\1.1.1\rotativa.aspnetcore.1.1.1.nupkg.sha512" />
+    <None Include="wwwroot\lib\rotativa.aspnetcore\1.1.1\rotativa.aspnetcore.nuspec" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Codaxy.WkHtmlToPdf" Version="0.5.8" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.3" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

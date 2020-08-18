@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BibliotekaStandardowPDF.Controllers
+{
+    public class DokumentController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
+        public IActionResult Create()
+        {
+            //if(Id = null)
+            //{
+            //    return NotFound();
+           // }
+            return View();
+        }
+    }
+}

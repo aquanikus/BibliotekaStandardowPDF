@@ -1,0 +1,101 @@
+﻿@model BibliotekaStandardowPDF.Models.Dokument
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pdf</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="~/lib/summernote-0.8.18-dist/summernote-bs4.js"></script>
+    <style>
+        img {
+            width: 250px;
+            height: 100px;
+        }
+
+        div {
+            height: 980px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tabsl {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 6px;
+            text-align: center;
+        }
+
+        .tabs {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 6px;
+        }
+
+        .samasz {
+            text-align: right;
+            color: green;
+        }
+
+        .samasz2 {
+            color: green;
+        }
+
+        .title {
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <p class="samasz">SaMASZ®</p>
+    <hr class="solid">
+    <h1 class="title"><strong>Jednopunktowa lekcja</strong></h1>
+    <hr class="solid">
+    <br>
+    <table>
+        <tr class="tabs">
+            <td class="tabsl">Obszar: Produkcja</td>
+            <td class="tabs">Sporządził: Marcin Lange</td>
+        </tr>
+        <tr class="tabs">
+            <td class="tabsl"><strong>Temat:  @Html.DisplayFor(model => model.Temat)</strong></td>
+            <td class="tabs">Sprawdził: Wojciech Grelecki</td>
+        </tr>
+        <tr class="tabs">
+            <td class="tabsl"></td>
+            <td class="tabs">Zatwierdził: Zimnowodzki Igor</td>
+        </tr>
+    </table>
+    <div>
+        @Html.Raw(@Model.Tresc)
+        <br />
+        <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAhCAYAAAC4JqlRAAACI0lEQVRYCc2Vy43CQBBEHcvGs+RBEIRABCTAeblz5sqVI0duZDCrsvRG5fb8QLsSLaG2xzVV1T1tM6UX4+vnO7V+L9KlaWSDC/bwr2DF1TUgwndjZG/VAJW8K86+Hk/RwIhzBEZzjXNloAYcFWrhStyfZQCHz+cz3e/3VjHzs1GcwPChAXnuAA+u12uapin/Ho8H2EU+Ho8ZI3wNd7lcMm6/388caOlmZUBEbkAEpdhutwvc+XwuwdLhcMg4XStWBnxBgM1mkzep0hhqvZvUNdVFrHN5MWjOHeCGze5alcaIx4SZiItGdU+gWTTg5yZy3yiC0+m06oBwDBoibjQWkg1wwSblOAe3280fp91ulw34dZwDN1o6SmlPJQNS87MTkQctl7iLxDlwc+pGjKYBf81ERKgbGJC432vdA1xcB9M04OfnBF4xVbkQc6DMuheAuHLTQJxgiL2tDKevMQfKGIhHiImmAYH8YwMxpD7V3hXmQBlsHOJhAz4HIvS2+lSX5gBx5Vp0O+BzoLfC28r5Q+6C/h2hI+DIElcUP0SAZoD9MfmryfmD9TlwHEcHjjxswImpUgIxfA7AKTO8Eb8woIcsRGCJmH81x/p8YKBkNGrlCakZKBHXptpbLxOt1w/z2UB0BuCvcyz0swz8dxdi9dJbdIB2C1gC8/ydXOMrGkCgtonnI7lXTNOABHoENROj+7oGEBglHMXBO2yADQjUMrjR/Asf+6h4UwlgOQAAAABJRU5ErkJggg==" data-filename="image.png" ><br></p><table class="table table-bordered"><tbody><tr><td><br></td></tr><tr><td><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAhCAYAAAC4JqlRAAACI0lEQVRYCc2Vy43CQBBEHcvGs+RBEIRABCTAeblz5sqVI0duZDCrsvRG5fb8QLsSLaG2xzVV1T1tM6UX4+vnO7V+L9KlaWSDC/bwr2DF1TUgwndjZG/VAJW8K86+Hk/RwIhzBEZzjXNloAYcFWrhStyfZQCHz+cz3e/3VjHzs1GcwPChAXnuAA+u12uapin/Ho8H2EU+Ho8ZI3wNd7lcMm6/388caOlmZUBEbkAEpdhutwvc+XwuwdLhcMg4XStWBnxBgM1mkzep0hhqvZvUNdVFrHN5MWjOHeCGze5alcaIx4SZiItGdU+gWTTg5yZy3yiC0+m06oBwDBoibjQWkg1wwSblOAe3280fp91ulw34dZwDN1o6SmlPJQNS87MTkQctl7iLxDlwc+pGjKYBf81ERKgbGJC432vdA1xcB9M04OfnBF4xVbkQc6DMuheAuHLTQJxgiL2tDKevMQfKGIhHiImmAYH8YwMxpD7V3hXmQBlsHOJhAz4HIvS2+lSX5gBx5Vp0O+BzoLfC28r5Q+6C/h2hI+DIElcUP0SAZoD9MfmryfmD9TlwHEcHjjxswImpUgIxfA7AKTO8Eb8woIcsRGCJmH81x/p8YKBkNGrlCakZKBHXptpbLxOt1w/z2UB0BuCvcyz0swz8dxdi9dJbdIB2C1gC8/ydXOMrGkCgtonnI7lXTNOABHoENROj+7oGEBglHMXBO2yADQjUMrjR/Asf+6h4UwlgOQAAAABJRU5ErkJggg==" data-filename="image.png" style="width: 32px;"><br></p></td></tr><tr><td><br></td></tr></tbody></table><p><b><u>Hello Summernotegngfdkjngjdfg</u></b></p><p>df</p><ul><li>gd</li><li>f</li><li>gdf</li></ul>
+
+    </div>
+
+
+    @section Scripts{
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+        <script src="~/lib/summernote-0.8.18-dist/summernote-bs4.js"></script>
+    }
+</body>
+</html>
+
