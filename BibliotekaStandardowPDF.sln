@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotekaStandardowPDF", "BibliotekaStandardowPDF\BibliotekaStandardowPDF.csproj", "{3B0DC7A8-C680-4CEA-8F60-F811A212AD16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotekaStandardowPDF", "BibliotekaStandardowPDF\BibliotekaStandardowPDF.csproj", "{3B0DC7A8-C680-4CEA-8F60-F811A212AD16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

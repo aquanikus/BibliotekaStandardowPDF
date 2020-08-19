@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BibliotekaStandardowPDF.Models.Dokument>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Dokument</th>
+            <th>Edycja</th>
+            <th>Usuń</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Temat)
+                </td>
+                <td>
+                    pszycisk
+                </td>
+                <td>
+                    przycisk
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

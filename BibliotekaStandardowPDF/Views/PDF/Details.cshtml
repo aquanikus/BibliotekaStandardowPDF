@@ -1,0 +1,28 @@
+﻿@model BibliotekaStandardowPDF.Models.Dokument
+
+@{ ViewData["Title"] = "Delete"; }
+
+<h2>Usuń</h2>
+
+<h3>Czy na pewno czesz usunąć ten wpis?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Temat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Temat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tresc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tresc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id_dokumentu">Edycja</a> |
+    <a asp-action="Index">Powrót</a>
+</div>

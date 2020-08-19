@@ -5,12 +5,131 @@ using System.Threading.Tasks;
 using BibliotekaStandardowPDF.Models;
 using DocumentFormat.OpenXml.Drawing;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Rotativa.AspNetCore;
 
 namespace BibliotekaStandardowPDF.Controllers
 {
     public class PDFController : Controller
     {
+        private readonly AppDbContext _context;
+        public PDFController(AppDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var dokument = _context.Dokument;
+            return View(await dokument.ToListAsync());
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("Id_dokumentu,Temat,Tresc")] Dokument dokument)
+        {
+            if (ModelState.IsValid)
+            {
+
+                _context.Add(dokument);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(dokument);
+        }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var dokument = await _context.Dokument
+                .FirstOrDefaultAsync(dok => dok.Id_dokumentu == id);
+
+            if (dokument == null)
+            {
+                return NotFound();
+            }
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var dokument = await _context.Dokument.FindAsync(id);
+            if (dokument == null)
+            {
+                return NotFound();
+            }
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+        public async Task<IActionResult> Edit(int id, [BindAttribute("Id_Dokumentu,Temat,Tresc")] Dokument dokument)
+        {
+            if (id != dokument.Id_dokumentu)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(dokument);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DokumentExists(dokument.Id_dokumentu))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(dokument);
+
+        }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var dokument = await _context.Dokument
+                .FirstOrDefaultAsync(m => m.Id_dokumentu == id);
+
+            if (dokument == null)
+            {
+                return NotFound();
+            }
+
+            return View(dokument);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var dokument = await _context.Dokument.FindAsync(id);
+            _context.Dokument.Remove(dokument);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        private bool DokumentExists(int id)
+        {
+            return _context.Dokument.Any(e => e.Id_dokumentu == id);
+        }
         public IActionResult Templatka(string Orientation)
         {
             Dokument dok = new Dokument
@@ -29,7 +148,6 @@ namespace BibliotekaStandardowPDF.Controllers
             }
             else if(Orientation == "Bi")
             {
-
                 return View(dok);
             }
             else

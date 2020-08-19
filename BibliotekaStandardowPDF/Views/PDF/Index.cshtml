@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BibliotekaStandardowPDF.Models.Dokument>
+
+@{ ViewData["Title"] = "Dokumenty"; }
+
+<h2>Lista dokumentów</h2>
+
+<p>
+    <a asp-action="Create">Dodaj dokument</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Temat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tresc)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Temat
+                </td>
+                <td>
+                    @item.Tresc
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id_dokumentu">Edycja</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id_dokumentu">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id_dokumentu">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
